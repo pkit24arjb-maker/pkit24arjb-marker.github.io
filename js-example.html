@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JavaScript Example</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;padding:20px;background:#0f172a;color:#e5e7eb}
+    .wrap{max-width:900px;margin:0 auto}
+    .card{background:#111827;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;margin:16px 0}
+    input,button{font:inherit}
+    input{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:#0b1220;color:#e5e7eb}
+    button{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:#0b1220;color:#e5e7eb;cursor:pointer}
+    button:hover{filter:brightness(1.1)}
+    .error{color:#fca5a5}
+    .ok{color:#86efac}
+    .muted{color:#9ca3af}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="card">
+      <h1>JavaScript Example</h1>
+      <p>This page demonstrates DOM updates, a live clock, and basic form validation.</p>
+      <nav><a href="../index.html" style="color:#60a5fa">Back to Portfolio</a></nav>
+    </header>
+
+    <section class="card" aria-labelledby="clock-heading">
+      <h2 id="clock-heading">Live Clock</h2>
+      <p class="muted">Updates every second using <code>setInterval</code>.</p>
+      <div id="clock" style="font-weight:700;font-size:1.8rem;"></div>
+    </section>
+
+    <section class="card" aria-labelledby="interact-heading">
+      <h2 id="interact-heading">Interactive Button</h2>
+      <p>Click the button to update the message below using <code>textContent</code>.</p>
+      <button id="msgBtn">Say Hi</button>
+      <p id="msg" class="muted">Waiting...</p>
+    </section>
+
+    <section class="card" aria-labelledby="form-heading">
+      <h2 id="form-heading">Simple Form Validation</h2>
+      <form id="signupForm" novalidate>
+        <label for="email">Email:</label><br/>
+        <input id="email" name="email" type="email" placeholder="name@example.com" required />
+        <button type="submit">Submit</button>
+        <p id="feedback" class="muted" aria-live="polite"></p>
+      </form>
+      <details class="muted"><summary>What this demonstrates</summary>
+        <ul>
+          <li>Listening for <code>submit</code> events</li>
+          <li>Preventing default form submission</li>
+          <li>Using <code>HTMLInputElement.checkValidity()</code> for validation</li>
+        </ul>
+      </details>
+    </section>
+  </div>
+
+  <script>
+    // Live clock
+    function updateClock(){
+      const el = document.getElementById('clock');
+      const now = new Date();
+      el.textContent = now.toLocaleString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Interactive message
+    document.getElementById('msgBtn').addEventListener('click', () => {
+      const el = document.getElementById('msg');
+      const phrases = ['Hello!','Hi there 👋','JavaScript is working!','You clicked the button!'];
+      el.textContent = phrases[Math.floor(Math.random()*phrases.length)];
+    });
+
+    // Form validation
+    document.getElementById('signupForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email');
+      const feedback = document.getElementById('feedback');
+      if(email.checkValidity()){
+        feedback.textContent = 'Looks good. Thanks!';
+        feedback.className = 'ok';
+      }else{
+        feedback.textContent = 'Please enter a valid email address.';
+        feedback.className = 'error';
+        email.focus();
+      }
+    });
+  </script>
+</body>
+</html>

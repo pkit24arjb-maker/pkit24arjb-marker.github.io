@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTML Example</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;padding:20px;line-height:1.6;background:#0f172a;color:#e5e7eb}
+    a{color:#60a5fa}
+    header,footer{background:#0b1220;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;margin-bottom:16px}
+    img{max-width:100%;height:auto;border-radius:8px;border:1px solid rgba(255,255,255,.08)}
+    table{border-collapse:collapse;width:100%;margin-top:10px}
+    th,td{border:1px solid rgba(255,255,255,.2);padding:8px;text-align:left}
+    th{background:#111827}
+    .card{background:#111827;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HTML Example</h1>
+    <p>This page shows semantic structure, links, an image with alt text, and a simple table.</p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="about-heading">
+      <h2 id="about-heading">About this example</h2>
+      <p>I’m using semantic tags: <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;footer&gt;</code>. Headings are in order and the image includes <code>alt</code> text for accessibility.</p>
+      <figure>
+        <img src="https://picsum.photos/900/300" alt="Placeholder landscape image" />
+        <figcaption>Figure: Example placeholder image.</figcaption>
+      </figure>
+      <p>Useful links:</p>
+      <ul>
+        <li><a href="../index.html">Back to Portfolio</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">MDN HTML Docs</a></li>
+      </ul>
+
+      <h3>Simple table</h3>
+      <table>
+        <thead>
+          <tr><th>Tag</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>&lt;header&gt;</td><td>Intro content, navigation</td></tr>
+          <tr><td>&lt;main&gt;</td><td>Primary page content</td></tr>
+          <tr><td>&lt;footer&gt;</td><td>Footer info or links</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <small>End of HTML example.</small>
+  </footer>
+</body>
+</html>
