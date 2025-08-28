@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My CET138 ePortfolio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card:#111827;
+      --ink:#e5e7eb;
+      --muted:#9ca3af;
+      --accent:#60a5fa;
+      --ring: rgba(96,165,250,.4);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      position:sticky;top:0;background:rgba(15,23,42,.7);backdrop-filter:saturate(150%) blur(6px);
+      border-bottom:1px solid rgba(255,255,255,.06);z-index:10
+    }
+    .wrap{max-width:1000px;margin:0 auto;padding:18px}
+    .title{font-size:clamp(24px,4vw,38px);font-weight:800;letter-spacing:.3px;margin:8px 0}
+    .subtitle{color:var(--muted);margin:0}
+    nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    nav a{padding:8px 12px;border:1px solid rgba(255,255,255,.08);border-radius:9999px}
+    main{padding:30px 18px 80px}
+    section{
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:18px;
+      padding:22px;
+      margin:18px auto;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    h2{margin:.2rem 0 .6rem;font-size:clamp(20px,3vw,28px)}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    @media(min-width:800px){.grid{grid-template-columns:2fr 1fr}}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:16px}
+    code,pre{background:#0b1220;border:1px solid rgba(255,255,255,.06);padding:10px;border-radius:8px;overflow:auto}
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:#0b1220}
+    .kicker{letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-size:.8rem}
+    .list{margin:0;padding-left:18px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:9999px;background:#0b1220;border:1px solid rgba(255,255,255,.08);font-size:.8rem;color:var(--muted)}
+    .note{border-left:3px solid var(--accent);padding-left:12px;margin:10px 0;color:#cbd5e1}
+    .links a{display:inline-block;margin-right:10px;margin-bottom:8px}
+    footer{color:var(--muted);text-align:center;padding:30px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="kicker">CET138 • Full Stack Development</div>
+      <h1 class="title">My ePortfolio</h1>
+      <p class="subtitle">A compact set of examples with brief explanations to show what I’ve learned so far.</p>
+      <nav>
+        <a href="#fullstack">What is Full Stack?</a>
+        <a href="#html">HTML</a>
+        <a href="#css">CSS</a>
+        <a href="#bootstrap">Bootstrap</a>
+        <a href="#javascript">JavaScript</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section id="fullstack" aria-labelledby="fs-heading">
+      <h2 id="fs-heading">1) What is Full Stack Development?</h2>
+      <div class="grid">
+        <div class="card">
+          <p><strong>My understanding:</strong> Full stack development means building both the <em>front‑end</em> (what users see and interact with in the browser) and the <em>back‑end</em> (server logic and database) so everything works together. A typical request flows like this: the browser sends a request → the server handles it and talks to the database → a response (usually HTML/JSON) comes back to the browser.</p>
+          <p>Common stacks include <span class="badge">MERN (MongoDB, Express, React, Node)</span> and <span class="badge">LAMP (Linux, Apache, MySQL, PHP)</span>. Even when I’m only showing front‑end examples here, I understand how the back‑end would expose APIs the front‑end can call.</p>
+          <div class="note">If I was extending this, I’d add a tiny Node/Express API and fetch it from my JavaScript example.</div>
+        </div>
+        <div class="card">
+          <h3>High‑level Diagram</h3>
+<pre aria-label="Full stack diagram (ASCII)"><code>User (Browser)
+   │
+   ▼
+Front‑end (HTML/CSS/JS)
+   │  fetch()/XHR
+   ▼
+Back‑end (e.g., Node/Express)
+   │  SQL/NoSQL queries
+   ▼
+Database (e.g., MySQL/MongoDB)
+</code></pre>
+        </div>
+      </div>
+      <div class="links">
+        <a class="btn" href="examples/html-example.html">Open HTML example</a>
+        <a class="btn" href="examples/css-example.html">Open CSS example</a>
+        <a class="btn" href="examples/bootstrap-example.html">Open Bootstrap example</a>
+        <a class="btn" href="examples/js-example.html">Open JavaScript example</a>
+      </div>
+    </section>
+
+    <section id="html" aria-labelledby="html-heading">
+      <h2 id="html-heading">2) HTML</h2>
+      <div class="grid">
+        <div class="card">
+          <p>HTML gives a page its structure using semantic tags like <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code>. I also make sure to include alt text on images for accessibility and use headings in order (H1 → H2 → H3).</p>
+          <ul class="list">
+            <li>Document outline: <code>&lt;!DOCTYPE html&gt;</code>, language, and meta tags</li>
+            <li>Links, images with <code>alt</code>, and lists</li>
+            <li>Semantic layout improves accessibility and SEO</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Evidence</h3>
+          <p>Working page with headings, image, links and a small table.</p>
+          <a class="btn" href="examples/html-example.html">View HTML Example</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="css" aria-labelledby="css-heading">
+      <h2 id="css-heading">3) CSS</h2>
+      <div class="grid">
+        <div class="card">
+          <p>CSS controls presentation (colours, spacing, layout). I used an external stylesheet to keep styles separate from HTML. I also used the cascade and classes to style repeated elements.</p>
+          <ul class="list">
+            <li>Typography and colour variables</li>
+            <li>Responsive layout with simple media queries</li>
+            <li>Reusable utility classes</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Evidence</h3>
+          <p>A styled page that demonstrates margins, padding, borders, and a simple grid.</p>
+          <a class="btn" href="examples/css-example.html">View CSS Example</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="bootstrap" aria-labelledby="bs-heading">
+      <h2 id="bs-heading">4) Bootstrap Framework</h2>
+      <div class="grid">
+        <div class="card">
+          <p>Bootstrap provides a responsive grid and pre‑built components (navbars, cards, buttons). I used the CDN version to quickly add it, then used the grid to build a layout that collapses nicely on mobile.</p>
+          <ul class="list">
+            <li>Grid classes like <code>.container</code>, <code>.row</code>, <code>.col-md-6</code></li>
+            <li>Navbar, cards, buttons</li>
+            <li>Utilities (e.g., spacing, text alignment)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Evidence</h3>
+          <p>A Bootstrap page showing a navbar, a responsive grid, and a modal.</p>
+          <a class="btn" href="examples/bootstrap-example.html">View Bootstrap Example</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="javascript" aria-labelledby="js-heading">
+      <h2 id="js-heading">5) JavaScript</h2>
+      <div class="grid">
+        <div class="card">
+          <p>JavaScript makes pages interactive by manipulating the DOM and handling events. In my example I added a button that updates content, a live clock, and a simple form validator.</p>
+          <ul class="list">
+            <li>Event listeners and DOM updates</li>
+            <li>Date/time and timers</li>
+            <li>Basic input validation with helpful messages</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Evidence</h3>
+          <p>Interactive demo page with multiple small features.</p>
+          <a class="btn" href="examples/js-example.html">View JavaScript Example</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 • CET138 ePortfolio • Built by me for assessment purposes.</p>
+  </footer>
+</body>
+</html>
